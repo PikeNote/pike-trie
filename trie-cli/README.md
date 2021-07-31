@@ -9,15 +9,15 @@ This CLI tool has the ability to add, remove, query, list, and search words in a
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png) 
 
 ## 📖 Table of Contents
-* [➤ Installing the CLI]
-* [➤ Using the CLI]
-	* [trie-cli add]
+* [➤ Installing the CLI](#-installing-the-cli-)
+* [➤ Using the CLI](#%EF%B8%8F-using-the-cli)
+	* [trie-cli add](#-trie-cli-add)
 	* [trie-cli remove]
 	* [trie-cli query]
 	* [trie-cli search]
 	* [trie-cli list]
 	* [trie-cli clear]
-* [➤ License]
+* [➤ License](#-license)
 
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
@@ -29,7 +29,8 @@ Once you have NodeJS installed, run the command below to install the CLI.
 
 ## 🖱️ Using the CLI
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-General commands/usage
+
+General commands/usage 
 ```
 Usage: trie-cli [command] [input?]
 
@@ -56,7 +57,7 @@ Adding "Google" to the trie
 `trie-cli add Google`
   ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
-### trie-cli remove
+### ➖ trie-cli remove
 The `trie-cli remove` command attempts to remove a word from the trie. The command requires an input to be executed.
 
 Examples:
@@ -64,7 +65,7 @@ Removing "Google" from the trie
 `trie-cli remove Google`
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
-### trie-cli query
+### 🔎 trie-cli query
 The `trie-cli remove` command attempts to search through the trie for all words matching/beginning with what you input. . The command requires an input to be executed.
 
 The result returned will be in a list format like this:
@@ -78,7 +79,7 @@ Output:
 
   ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
-### trie-cli search
+### 🔎 trie-cli search
 The `trie-cli search` command tries to search for a word in the trie. Unlike the `trie-cli query` command, it is explicitly searching for if the word exists. . The command requires an input to be executed.
 
 Examples:
@@ -89,13 +90,11 @@ Output:
 
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
-### trie-cli list
+### 📜 trie-cli list
 The `trie-cli list` command goes through the entire trie and tries to find and list all words in the trie.
 
 The result returned will be in a list format like this:
 `["a","aa","aaa"]`
-
-  
 
 Examples:
 `trie-cli list`
@@ -105,7 +104,7 @@ Output:
 
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
-### trie-cli clear
+### 🗑️ trie-cli clear
 The `trie-cli clear` command clears the entirety of the trie on the backend.
 
 Examples:
