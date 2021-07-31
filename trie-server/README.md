@@ -8,30 +8,33 @@ This server manages a local trie that exposes a set of backend API endpoints tha
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png) 
 
 ## 📖 Table of Contents
-* [➤ Backend Server]
-	* [Storage]
-	* [Queue]
-	* [CLI Interaction]
-* [➤ Custom endpoint status codes]
-* [➤ Backend Accessible Endpoints]
-	* [Submitting a payload]
-	* [addTrie]
-	* [removeTrie]
-	* [queryTrie]
-	* [searchTrie]
-	* [clearTrie]
-* [➤ License]
-
+* [➤ Backend Server](#%EF%B8%8F-backend-server)
+	* [Storage](#-storage)
+	* [Queue](#-queue)
+	* [CLI Interaction](#cli-interaction)
+* [➤ Custom endpoint status codes](#%EF%B8%8F-custom-endpoint-status-codes)
+* [➤ Backend Accessible Endpoints](#-backend-accessible-endpoints)
+	* [Submitting a payload](#%EF%B8%8F-submitting-a-payload)
+	* [/addTrie](#addTrie)
+	* [/addTrie](#-/addTrie)
+	* [/removeTrie](#-/removeTrie)
+	* [/queryTrie](#-/queryTrie)
+	* [/searchTrie](#-/searchTrie)
+	* [/resetTrie](#-%EF%B8%8FresetTrie)
+* [➤ License](#-license)
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-
+  
 ## 🖥️ Backend Server
 The backend server is hosted [here](https://trie-server.pikenote.repl.co) on repl.it. This site has an interactive and easy to use online IDE. The server has a mode to keep it always online + dedicated more resources using the hacker plan I have on the platform.
 
 The server is built on top of NodeJS and uses [fastify](https://github.com/fastify/fastify) to help serve the API.
 
 **All responses/words going into the server are lowercased by default.**
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### Storage
+  
+### 💾 Storage
 The data of the trie is stored in a JSON structure. This JSON is stored in a file locally after every modification. A version of this is always kept in memory. The file is used to load back. To help ensure frequent writes are successful to the backend trie file, a module named [fstorm](https://www.npmjs.com/package/fstorm) is used.  The module uses native fs functions + backend to allow frequent writes which may happen on the server to not fail and overwrite each other.
     
 An example of a JSON structure for the word "hello"
@@ -52,8 +55,10 @@ An example of a JSON structure for the word "hello"
 
 ```
 Using the `endOfWord` key, this helps indicate the pathing taken to this last letter is a whole word.  Each letter is stored as a key and each key contains nested JSON objects directing to other letters.
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### Queue
+  
+### 📜 Queue
 The backend uses a system of a queue. Each request is processed and added into queue to be executed. This queue is an array. When a new request comes in, it is added and the queue would start recursively executing all instructions until there are none.
 
 One special feature of the queue is that when opposite instructions are queued at the same time, no operation would be executed. The instruction that was on the queue would be removed and the instruction that was requested would not be added. This is to save on processing and cut out unnecessary modification.
@@ -71,13 +76,17 @@ The request returned when this happens will be
 	"result":"Counter option in queue is now removed."
 }
 ```
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### CLI Interaction
+  
+### 🖥️ CLI Interaction
 The CLI interacts with the backend server through a series of `GET` and `POST` requests. These requests are made to the endpoints as listed below.
 
 One major thing to note is that when the CLI lists all words, an empty payload is sent to the `/queryTrie` endpoint. This queries every word in the trie and returns all words.
-## ⌨️ Custom endpoint status codes
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
+  
+## ⌨️ Custom endpoint status codes
 At all times, the server is guaranteed to return a status code with the returned JSON. This status code can determine if anything had gone wrong or could not be executed on the server side. This code will be stored in the `status` key of the JSON.
 
 The status codes means the following:
@@ -87,7 +96,9 @@ The status codes means the following:
 102x - Failed (with cause)
 103x - Maintaince
 ```
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
+  
 ## 🌐 Backend Accessible Endpoints
 Below are a list of all the endpoints exposed by the server.
   
@@ -98,13 +109,14 @@ Below are a list of all the endpoints exposed by the server.
 | /queryTrie| input (string) | POST | No | Used to query the trie for any words that start with the inputted string
 | /searchTrie| input (string) | POST | Yes | Used to search the trie for an exact word
 | /resetTrie|  | GET| No | Used to clear the entire trie
+  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### Submitting a payload
+### 🖱️ Submitting a payload
 When parameters are required on the POST request endpoints, a payload must be submitted as a JSON string. The key required is listed on the parameter section of the table above along with what type of variable the server is expecting.
 
 `{"input":"stringHere"}`
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### /addTrie
+### ➕ /addTrie
 **Request Type**: POST
 **URL**: https://trie-server.pikenote.repl.co/addTrie
 **Parameter**: input (string) (required)
@@ -145,7 +157,7 @@ If the counter queue option (where it would remove a pending queue since the two
 `curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/addTrie'`
 (Adds the word "Hello" to the trie)
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### /removeTrie
+### ➖ /removeTrie
 **Request Type**: POST
 **URL**: https://trie-server.pikenote.repl.co/removeTrie
 **Parameter**: input (string) (required)
@@ -186,7 +198,7 @@ If the counter queue option (where it would remove a pending queue since the two
 `curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/removeTrie'`
 (Removes the word "Hello" from the trie)
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### /queryTrie
+### 🔎 /queryTrie
 **Request Type**: POST
 **URL**: https://trie-server.pikenote.repl.co/queryTrie
 **Parameter**: input (string)
@@ -210,7 +222,7 @@ Below is an example response if I try to query for "H" in the trie that has the 
 `curl -XPOST -d '{"input":"H"}' 'https://trie-server.pikenote.repl.co/queryTrie'`
 (Queries for "H" in the trie)
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### /searchTrie
+### 🔎 /searchTrie
 **Request Type**: POST
 **URL**: https://trie-server.pikenote.repl.co/searchTrie
 **Parameter**: input (string) (required)
@@ -233,7 +245,7 @@ Below is an example response if I try to find "Hello" in the trie that contains 
 `curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/searchTrie'`
 (Tries to find "Hello" in the trie)
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
-### /resetTrie
+### 🗑️ /resetTrie
 **Request Type**: GET
 **URL**: https://trie-server.pikenote.repl.co/resetTrie
 **Parameter**: None
