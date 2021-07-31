@@ -2,8 +2,8 @@
 # 🌲Trie CLI
 This is custom-built trie command line interface to interact with a customized trie backend. This project is intended as a takehome project for Slingshot.
 
-This CLI tool has the ability to add, remove, query, list, and search words in a trie.
-
+This CLI tool has the ability to add, remove, query, list, and search words in a trie.  
+  
 [![NPM](https://nodei.co/npm/@pikenote/pike-trie-cli.png)](https://nodei.co/npm/@pikenote/pike-trie-cli/)
 
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png) 
@@ -23,10 +23,10 @@ This CLI tool has the ability to add, remove, query, list, and search words in a
 
 ## 🔽 Installing the CLI
 The CLI can be installed through a package manager called npm. This is included by installing NodeJS. You can find it [here](https://nodejs.org/en/).
-
-Once you have NodeJS installed, run the command below to install the CLI.
-`npm i @pikenote/pike-trie-cli`
-
+  
+Once you have NodeJS installed, run the command below to install the CLI.  
+`npm i @pikenote/pike-trie-cli`  
+  
 ## 🖱️ Using the CLI
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
