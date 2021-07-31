@@ -15,12 +15,11 @@ This server manages a local trie that exposes a set of backend API endpoints tha
 * [➤ Custom endpoint status codes](#%EF%B8%8F-custom-endpoint-status-codes)
 * [➤ Backend Accessible Endpoints](#-backend-accessible-endpoints)
 	* [Submitting a payload](#%EF%B8%8F-submitting-a-payload)
-	* [/addTrie](#addTrie)
-	* [/addTrie](#-/addTrie)
-	* [/removeTrie](#-/removeTrie)
-	* [/queryTrie](#-/queryTrie)
-	* [/searchTrie](#-/searchTrie)
-	* [/resetTrie](#-%EF%B8%8FresetTrie)
+	* [/addTrie](#-addtrie)
+	* [/removeTrie](#-removetrie)
+	* [/queryTrie](#-querytrie)
+	* [/searchTrie](#-searchtrie)
+	* [/resetTrie](#%EF%B8%8F-resettrie)
 * [➤ License](#-license)
   
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
@@ -152,10 +151,10 @@ If the counter queue option (where it would remove a pending queue since the two
 	"status":"100x",
 	"result":"Counter option in queue is now removed."
 }
-```
-**CURL Request Example**:
-`curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/addTrie'`
-(Adds the word "Hello" to the trie)
+```  
+**CURL Request Example**:  
+`curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/addTrie'`  
+(Adds the word "Hello" to the trie)  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 ### ➖ /removeTrie
 **Request Type**: POST
@@ -194,9 +193,9 @@ If the counter queue option (where it would remove a pending queue since the two
 	"result":"Counter option in queue is now removed."
 }
 ```
-**CURL Request Example**:
-`curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/removeTrie'`
-(Removes the word "Hello" from the trie)
+**CURL Request Example**:  
+`curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/removeTrie'`  
+(Removes the word "Hello" from the trie)  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 ### 🔎 /queryTrie
 **Request Type**: POST
@@ -218,9 +217,9 @@ Below is an example response if I try to query for "H" in the trie that has the 
 	"result":["Hello","Hi"]
 }
 ```
-**CURL Request Example**:
-`curl -XPOST -d '{"input":"H"}' 'https://trie-server.pikenote.repl.co/queryTrie'`
-(Queries for "H" in the trie)
+**CURL Request Example**:  
+`curl -XPOST -d '{"input":"H"}' 'https://trie-server.pikenote.repl.co/queryTrie'`  
+(Queries for "H" in the trie)  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 ### 🔎 /searchTrie
 **Request Type**: POST
@@ -241,9 +240,9 @@ Below is an example response if I try to find "Hello" in the trie that contains 
 }
 ```
 
-**CURL Request Example**:
-`curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/searchTrie'`
-(Tries to find "Hello" in the trie)
+**CURL Request Example**:  
+`curl -XPOST -d '{"input":"Hello"}' 'https://trie-server.pikenote.repl.co/searchTrie'`  
+(Tries to find "Hello" in the trie)  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 ### 🗑️ /resetTrie
 **Request Type**: GET
@@ -259,11 +258,9 @@ If the request succeeds, the following would return
 }
 ```
 
-**CURL Request Example**:
-`curl -XGET 'https://trie-server.pikenote.repl.co/resetTrie'`
-(Clears the trie)
-
-
+**CURL Request Example**:  
+`curl -XGET 'https://trie-server.pikenote.repl.co/resetTrie'`  
+(Clears the trie)  
 ![-----------------------------------------------------](https://user-images.githubusercontent.com/56088716/103312593-8a37ff80-49eb-11eb-91d3-75488e21a0a9.png)
 
 ## 📜 License
