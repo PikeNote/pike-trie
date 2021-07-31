@@ -1,0 +1,24 @@
+{
+  "name": "trie-suite",
+  "version": "1.0.0",
+  "description": "Suite of all trie related tools/documentation",
+  "main": "test.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "^15.0.9"
+  },
+  "scripts": {
+    "test": "tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PikeNote/pike-trie.git"
+  },
+  "author": "Kevin Huang (pikenote@protonmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PikeNote/pike-trie/issues"
+  },
+  "homepage": "https://github.com/PikeNote/pike-trie#readme",
+  "preferGlobal": true
+}

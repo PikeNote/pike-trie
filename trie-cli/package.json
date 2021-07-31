@@ -1,0 +1,28 @@
+{
+  "name": "@pikenote/pike-trie-cli",
+  "version": "1.0.1",
+  "description": "CLI to interface with a custom built trie backend",
+  "main": "bin/index.js",
+  "bin": {
+    "trie-cli": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PikeNote/pike-trie.git"
+  },
+  "author": "Kevin Huang (pikenote@protonmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PikeNote/pike-trie/issues"
+  },
+  "homepage": "https://github.com/PikeNote/pike-trie#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0"
+  },
+  "devDependencies": {}
+}
